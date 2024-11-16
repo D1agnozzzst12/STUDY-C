@@ -81,17 +81,29 @@ int is_even(int x)
     return x % 2 == 0;
 }
 
+int is_positive(int x) 
+{
+    return x > 0; 
+}
+
+int is_odd(int x) {
+return x % 2 != 0;
+}
 
 int main() 
 {
 
     int digit[] = {-3, 4, 10, 11, -5, 3};
-
-
     int result[SIZE];
 
-    filter(result, SIZE, digit, sizeof(digit) / sizeof(*digit), is_even);
+    int (*criterials[]) (int) = {is_even, is_odd, is_positive};
 
+
+    // filter(result, SIZE, digit, sizeof(digit) / sizeof(*digit), is_even);
+
+    // filter(result, SIZE, digit, sizeof(digit) / sizeof(*digit), is_positive);
+
+    filter(result, SIZE, digit, sizeof(digit) / sizeof(*digit), criterials[1]);
     for(int i = 0; i < SIZE; ++i) {
         printf("%d\n", result[i]);
     }
