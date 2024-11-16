@@ -62,4 +62,4 @@ int main()
     puts("-----------------------------");
     show_pole(ppole);
     return 0;
-}
+} 
